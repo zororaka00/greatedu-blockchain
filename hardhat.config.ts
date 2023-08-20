@@ -1,13 +1,10 @@
 import * as dotenv from "dotenv";
+dotenv.config();
 
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
-import "@nomiclabs/hardhat-etherscan";
 import "hardhat-gas-reporter";
-
 import "@openzeppelin/hardhat-upgrades";
-
-dotenv.config();
 
 const config: HardhatUserConfig = {
   mocha: {

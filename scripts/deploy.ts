@@ -1,22 +1,14 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
-
-  const lockedAmount = ethers.parseEther("0.001");
-
-  const lock = await ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
-  });
-
-  await lock.waitForDeployment();
-
-  console.log(
-    `Lock with ${ethers.formatEther(
-      lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
-  );
+  let instance_basic_erc20 = await (await ethers.getContractFactory("BasicERC20")).deploy();
+  console.log(`Address BasicERC20 Contract: ${await instance_basic_erc20.getAddress()}`);
+  
+  let instance_oz_erc20 = await (await ethers.getContractFactory("OzERC20")).deploy();
+  console.log(`Address OzERC20 Contract: ${await instance_oz_erc20.getAddress()}`);
+  
+  let instance_oz_erc20_custom = await (await ethers.getContractFactory("OzERC20Custom")).deploy("OZ Custom Token", "OZCT");
+  console.log(`Address OzERC20 Contract: ${await instance_oz_erc20_custom.getAddress()}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
