@@ -3,8 +3,8 @@ dotenv.config();
 
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import "@nomicfoundation/hardhat-verify";
 import "hardhat-gas-reporter";
-import "@openzeppelin/hardhat-upgrades";
 
 const config: HardhatUserConfig = {
   mocha: {
@@ -20,7 +20,7 @@ const config: HardhatUserConfig = {
             runs: 200,
           },
         },
-      },
+      }
     ],
   },
   networks: {
