@@ -88,11 +88,11 @@ function TokenPaymentPage() {
                             onChange={handleId}
                             label="Input ID" type="text" size='medium' />
                         <Button variant="contained"
-                        // disabled={data && Number(data) == 0 ? false : true}
+                        disabled={data && Number(data) == 0 ? false : true}
                         onClick={writeApprove}
                         >Set Allowance</Button><br/>
                         <Button variant="contained"
-                        // disabled={data && Number(data) > 0 && textId ? false : true}
+                        disabled={data && Number(data) > 0 && textId ? false : true}
                         onClick={writePurchase}
                         >Submit</Button>
                     </FormControl>
