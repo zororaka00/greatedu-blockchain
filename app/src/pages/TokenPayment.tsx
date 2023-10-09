@@ -16,8 +16,8 @@ function TokenPaymentPage() {
     const handleId = (event: any) => setTextId(String(event.target.value));
 
     const { address } = useAccount();
-    const contractAddressTokenExample = '0x3541F54A106EB8bFde8d8Fd2D8a6389e00d57C73';
-    const contractAddressTokenPayment = '0x010A5509BD972170141EAa5eD0Bbe62528363AAd';
+    const contractAddressTokenExample = '0xAE4bC7567cCe37371e616F65075992B0a05486fC';
+    const contractAddressTokenPayment = '0xE54A0711802d0B2D72753DaCdc73dE25b61a4AE5';
     const { data } = useContractRead({
         address: contractAddressTokenExample,
         abi: TokenExampleAbi as any,
@@ -45,7 +45,7 @@ function TokenPaymentPage() {
         abi: TokenPaymentAbi,
         functionName: 'purchase',
         account: address,
-        args: [parseEther(textId)]
+        args: [textId]
     });
     const { write: writePurchase, isLoading, isSuccess, isError, error } = useContractWrite(configPurchase);
     console.log({ data });
@@ -88,11 +88,11 @@ function TokenPaymentPage() {
                             onChange={handleId}
                             label="Input ID" type="text" size='medium' />
                         <Button variant="contained"
-                        disabled={data && Number(data) == 0 ? false : true}
+                        // disabled={data && Number(data) == 0 ? false : true}
                         onClick={writeApprove}
                         >Set Allowance</Button><br/>
                         <Button variant="contained"
-                        disabled={data && Number(data) > 0 && textId ? false : true}
+                        // disabled={data && Number(data) > 0 && textId ? false : true}
                         onClick={writePurchase}
                         >Submit</Button>
                     </FormControl>
