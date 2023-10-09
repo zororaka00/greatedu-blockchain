@@ -40,6 +40,9 @@ contract TokenPayment is Ownable, ReentrancyGuard {
         address who = _msgSender();
         StructPurchase memory getpurchase = dataPurchase[_id];
         require(getpurchase.seller != address(0) && getpurchase.seller != who && !getpurchase.isSold, "Not available");
+        dataPurchase[_id].buyer = who;
+        dataPurchase[_id].isSold = true;
+        dataPurchase[_id].epochSold = block.timestamp;
 
         IERC20(getpurchase.contractPayment).transferFrom(who, getpurchase.seller, getpurchase.amount);
         emit Purchase(_id, who, getpurchase.contractPayment, getpurchase.amount);
