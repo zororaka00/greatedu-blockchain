@@ -45,10 +45,6 @@ const config: HardhatUserConfig = {
       bscTestnet: process.env.BSC_API_KEY as string,
     },
   },
-  gasReporter: {
-    enabled: process.env.REPORT_GAS !== undefined,
-    currency: "USD",
-  },
 };
 
 export default config;
