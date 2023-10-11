@@ -4,6 +4,7 @@ import { TokenPaymentPage } from './pages/TokenPayment';
 import { NFTPage } from './pages/NFT';
 import { HealthcarePage } from './pages/Healthcare';
 import { IdentityPage } from './pages/Identity';
+import { LogisticsPage } from './pages/Logistics';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/nft" element={<NFTPage />} />
         <Route path="/healthcare" element={<HealthcarePage />} />
         <Route path="/identity" element={<IdentityPage />} />
+        <Route path="/logistics" element={<LogisticsPage />} />
       </Routes>
     </BrowserRouter>
   );
