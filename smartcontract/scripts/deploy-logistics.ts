@@ -1,9 +1,9 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const instance_investory_management = await ethers.deployContract("InventoryManagement");
-  await instance_investory_management.waitForDeployment();
-  const addressInventoryManagement = await instance_investory_management.getAddress();
+  const instance_inventory_management = await ethers.deployContract("InventoryManagement");
+  await instance_inventory_management.waitForDeployment();
+  const addressInventoryManagement = await instance_inventory_management.getAddress();
   console.log(`Inventory Management: ${addressInventoryManagement}`);
 }
 
